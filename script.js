@@ -1,6 +1,17 @@
 const dodger = document.getElementById("dodger");
 const game = document.getElementById("game");
 
+const showMe = document.createElement("button");
+showMe.id = "show";
+showMe.textContent = "Show Me!";
+document.body.append(showMe);
+
+const hideMe = document.createElement("button");
+hideMe.id = "hide";
+hideMe.textContent = "Hide Me!";
+document.body.append(hideMe);
+
+
 function moveDodgerUp() {
     const bottomNumbers = dodger.style.bottom.replace("px", "");
     const bottom = parseInt(bottomNumbers, 10);
@@ -55,5 +66,15 @@ dodger.addEventListener("click", function() {
 game.addEventListener("dblclick", function() {
     randomColor = Math.floor(Math.random()*16777215).toString(16);
     game.style.backgroundColor = "#" + randomColor;
+}
+)
+
+showMe.addEventListener("click", function() {
+    document.getElementById("game").style.display = "block";
+}
+)
+
+hideMe.addEventListener("click", function() {
+    document.getElementById("game").style.display = "none";
 }
 )
