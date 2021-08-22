@@ -1,6 +1,22 @@
 const dodger = document.getElementById("dodger");
 const game = document.getElementById("game");
 
+function moveDodgerUp() {
+    const bottomNumbers = dodger.style.bottom.replace("px", "");
+    const bottom = parseInt(bottomNumbers, 10);
+    if(bottom < 380) {
+        dodger.style.bottom = `${bottom + 1}px`;
+    }
+}
+
+function moveDodgerDown() {
+    const bottomNumbers = dodger.style.bottom.replace("px", "");
+    const bottom = parseInt(bottomNumbers, 10);
+    if (bottom > 0) {
+        dodger.style.bottom = `${bottom - 1}px`;
+    }
+}
+
 function moveDodgerLeft() {
     const leftNumbers = dodger.style.left.replace("px", "");
     const left = parseInt(leftNumbers, 10);
@@ -19,7 +35,11 @@ function moveDodgerLeft() {
   }
 
   document.addEventListener("keydown", function(e) {
-    if (e.key === "ArrowLeft") {
+    if (e.key === "ArrowUp") {
+        moveDodgerUp();
+    } else if (e.key === "ArrowDown") {
+        moveDodgerDown();
+    } else if (e.key === "ArrowLeft") {
       moveDodgerLeft();
     } else if (e.key === "ArrowRight") {
         moveDodgerRight();
