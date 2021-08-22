@@ -1,4 +1,5 @@
 const dodger = document.getElementById("dodger");
+const game = document.getElementById("game");
 
 function moveDodgerLeft() {
     const leftNumbers = dodger.style.left.replace("px", "");
@@ -28,5 +29,11 @@ function moveDodgerLeft() {
 dodger.addEventListener("click", function() {
     randomColor = Math.floor(Math.random()*16777215).toString(16);
     dodger.style.backgroundColor = "#" + randomColor;
+}
+)
+
+game.addEventListener("dblclick", function() {
+    randomColor = Math.floor(Math.random()*16777215).toString(16);
+    game.style.backgroundColor = "#" + randomColor;
 }
 )
